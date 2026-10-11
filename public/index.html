@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07070e">
+<meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Für Fabienne</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%23fff6ea'/%3E%3Cstop offset='.35' stop-color='%23f6b98f'/%3E%3Cstop offset='1' stop-color='%23f2a7bd' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%2307070e'/%3E%3Ccircle cx='32' cy='32' r='22' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="modulepreload" href="/app.js">
+</head>
+<body>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<button class="sound" id="sound" type="button" aria-label="Ton aus" hidden>
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9.5h3.2L12 5.6v12.8l-4.8-3.9H4z" fill="currentColor"/><path class="w1" d="M15.2 9.2a4 4 0 0 1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="w2" d="M17.6 6.8a7.4 7.4 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="x" d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+</button>
+<div class="places" id="places" aria-hidden="true">
+  <span data-place="0">Bülach</span>
+  <span data-place="1">Singen</span>
+  <span data-place="2">Konstanz</span>
+  <span data-place="3">Winterthur</span>
+  <span data-place="4">Fehraltorf</span>
+  <span data-place="5" class="water">Bodensee</span>
+  <span data-place="6" class="water">Rhein</span>
+</div>
+
+<main id="stage">
+
+  <!-- Anfang -->
+  <section class="scene center intro on" data-shape="nebula" data-notap data-mood="intro">
+    <div class="inner">
+      <p class="chapter line">Eine kurze Geschichte</p>
+      <h1 class="line">Für<br><em>Fabienne</em></h1>
+      <p class="t line">Nimm dir ein paar Minuten. Tippe, um weiterzulesen.</p>
+      <div class="line starts">
+        <button class="btn" id="start" type="button">Beginnen</button>
+        <button class="quiet" id="start-silent" type="button">ohne Ton</button>
+      </div>
+      <p class="from line">Von Alexander für Fabienne</p>
+    </div>
+  </section>
+
+  <!-- I -->
+  <section class="scene" data-shape="steps" data-mood="before">
+    <div class="inner">
+      <p class="chapter line">I · Vorher</p>
+      <h2 class="line">Nach der Diagnose habe ich gelernt zu <em>kämpfen</em>.</h2>
+      <p class="t line">Aus dem Rollstuhl heraus, Schritt für Schritt, zurück auf die eigenen Beine.</p>
+      <p class="t line" data-shape="collapse" data-mood="fall">Aber irgendwann hatte ich keine Kraft mehr. Die Krankheit, die Veränderungen in mir, einfach alles war zu schwer. <strong>Ich hatte aufgegeben.</strong></p>
+      <p class="t line" data-shape="ember" data-mood="off">Und ich war sicher: Etwas in mir ist abgestellt. <strong>Das Gefühl für andere Menschen.</strong> Das, was man Liebe nennt.</p>
+    </div>
+  </section>
+
+  <!-- II -->
+  <section class="scene" data-shape="ember" data-mood="off">
+    <div class="inner">
+      <p class="chapter line">II · Dann du</p>
+      <h2 class="line" data-shape="glimmer">Eine Arbeitskollegin. Ganz normal, dachte ich.</h2>
+      <p class="t line" data-shape="stir" data-mood="stir">Bis ich gemerkt habe, dass ich mich auf die Tage freue, an denen ich dich sehe.</p>
+      <p class="t line" data-shape="heart" data-mood="spark">Da war es wieder. Das, was ich für verloren hielt. <strong>Du hast mir gezeigt, dass es noch da ist.</strong></p>
+    </div>
+  </section>
+
+  <!-- III -->
+  <section class="scene" data-shape="heart" data-mood="spark">
+    <div class="inner">
+      <p class="chapter line">III · C</p>
+      <h2 class="line" data-shape="three" data-mood="cold">Und dann kam <em>C.</em></h2>
+      <p class="t line">Ich konnte ihn von der ersten Minute an nicht leiden. Vielleicht, weil ich schon damals gespürt habe, wohin das führt.</p>
+      <p class="t line" data-shape="gaze">Ich habe gesehen, wie ihr euch auf der Dachterrasse angeschaut habt. Und ich habe gesehen, was daraus wurde.</p>
+      <p class="t line" data-shape="shards" data-mood="ache">Ich habe nichts gesagt. <strong>Aber es hat mehr wehgetan, als ich mir eingestehen wollte.</strong></p>
+    </div>
+  </section>
+
+  <!-- IV -->
+  <section class="scene" data-shape="fragile" data-mood="care">
+    <div class="inner">
+      <p class="chapter line">IV · Die schwere Zeit</p>
+      <h2 class="line" data-shape="shelter">Als es dir danach schlecht ging, wollte ich einfach <em>da sein.</em></h2>
+      <p class="t line">Am Telefon. Im Videochat bis spät in die Nacht. Beim Shoppen, wenn du raus musstest.</p>
+      <p class="t line" data-cue="letters">Ich habe dir einen Geschenkkorb zusammengestellt. Und Briefe geschrieben, <strong>einen für jede deiner Ängste</strong>, damit du etwas in der Hand hast, wenn sie kommen.</p>
+      <p class="t line" data-shape="shelterBig" data-mood="grow">Ich habe nie etwas dafür erwartet. Aber in diesen Wochen ist aus Mögen <strong>etwas viel Grösseres</strong> geworden.</p>
+    </div>
+  </section>
+
+  <!-- V -->
+  <section class="scene map-scene" data-shape="map" data-mood="roads">
+    <div class="inner">
+      <p class="chapter line">V · Unsere Wege</p>
+      <p class="t line" data-wait="4800">Unsere Shoppingtage, unsere Treffen. Für dich vielleicht nichts Besonderes.</p>
+      <p class="t line"><strong>Für mich die Tage, die ich am längsten behalte.</strong></p>
+    </div>
+  </section>
+
+  <!-- VI -->
+  <section class="scene" data-shape="twin" data-mood="twin">
+    <div class="inner">
+      <p class="chapter line">VI · Aliyah</p>
+      <h2 class="line">Und dann ist da noch <em>Aliyah.</em></h2>
+      <p class="t line">Ich habe sie vom ersten Moment an ins Herz geschlossen. Ihr Lachen, ihre Neugier, wie sie die Welt anschaut.</p>
+      <p class="t line" data-shape="twinRing" data-mood="twinWarm"><strong>Sie gehört für mich genauso dazu wie du.</strong></p>
+    </div>
+  </section>
+
+  <!-- VII -->
+  <section class="scene" data-shape="water" data-mood="still">
+    <div class="inner">
+      <p class="chapter line">VII · Ehrlich</p>
+      <h2 class="line">Ich weiss, dass du einen Freund hast.</h2>
+      <p class="t line">Ich will nichts kaputt machen und dich zu nichts drängen.</p>
+      <p class="t line" data-shape="waterRough" data-mood="unsure">Aber seit Monaten weiss ich nicht, woran ich bin. Ich habe versucht, Abstand zu nehmen, und es nicht geschafft. <strong>Raten tut mir nicht mehr gut.</strong></p>
+    </div>
+  </section>
+
+  <!-- VIII -->
+  <section class="scene" data-shape="galaxy" data-mood="love">
+    <div class="inner">
+      <p class="chapter line">VIII · Du</p>
+      <h2 class="line">Was ich für dich <em>fühle.</em></h2>
+      <p class="t line">Mehr, als ich je für möglich gehalten hätte. Dein Lächeln, deine Art, wie viel wir gemeinsam haben.</p>
+      <p class="t line" data-shape="galaxyCalm">Und was du für mich tust, weisst du vielleicht gar nicht: Egal wie angespannt ich bin, <strong>du bringst mich wieder auf den Boden.</strong> Manchmal reicht ein Lächeln. Manchmal, dass ich dich streicheln darf.</p>
+      <p class="t line" data-shape="galaxyGlow" data-mood="loveFull">Und deine Reaktion, wenn ich deinen Arm, deine Schultern oder deinen Rücken küsse: <strong>Die kann ich nicht beschreiben.</strong></p>
+    </div>
+  </section>
+
+  <!-- IX -->
+  <section class="scene" data-shape="knot" data-mood="mind">
+    <div class="inner">
+      <p class="chapter line">IX · Mein Kopf</p>
+      <h2 class="line">Und dann ist da mein <em>Kopf.</em></h2>
+      <p class="t line">Ich weiss, dass ich anstrengend sein kann. Ich denke zu viel nach, drehe Dinge hin und her und deute vielleicht vieles einfach falsch.</p>
+      <p class="t line">Ich bin 34 und war trotzdem lange allein. Vieles, was für andere selbstverständlich ist, fällt mir schwer.</p>
+      <p class="t line" data-shape="loop" data-mood="calm">Darum bin ich vielleicht nicht wie andere Männer. Aber das hat einen Grund: <strong>Ich will mit dir einfach nichts kaputt machen.</strong></p>
+    </div>
+  </section>
+
+  <!-- X -->
+  <section class="scene" data-shape="heavy" data-mood="bye">
+    <div class="inner">
+      <p class="chapter line">X · Abschied</p>
+      <h2 class="line">Das hier fällt mir sehr <em>schwer.</em></h2>
+      <p class="t line">Weil es mir diesmal ernst ist.</p>
+      <p class="t line" data-shape="whatif">Wie oft wollte ich mich schon von dir zurückziehen. Und konnte es nicht, weil da jedes Mal wieder diese eine Frage war: <strong>Was wäre, wenn?</strong></p>
+      <p class="t line" data-shape="days">Die nächsten vier Wochen will ich nutzen, um Abstand zu meinen Gefühlen zu finden und dich aus meinen Gedanken zu lassen.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-shape="together" data-mood="bye2">
+    <div class="inner">
+      <p class="chapter line">X · Abschied</p>
+      <h2 class="line" data-shape="apart">Nicht dich. Nur die <em>Gefühle.</em></h2>
+      <p class="t line">Das heisst nicht, dass ich dich vergessen will.</p>
+      <p class="t line" data-shape="apartFar">Ich will nur aufhören, mich in einen Wunschgedanken zu verrennen, von dem ich nie wissen werde, ob er jemals wahr wird.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-shape="rain0" data-mood="nein">
+    <div class="inner">
+      <p class="chapter line">X · Abschied</p>
+      <p class="q line">Weiss ich, ob du Gefühle für mich hast?</p>
+      <p class="q no line" data-shape="rain1" data-cue="nein">Nein.</p>
+      <p class="q line">Weiss ich, was mit dir und mir in Zukunft passiert?</p>
+      <p class="q no line" data-shape="rain2" data-cue="nein">Nein.</p>
+      <p class="q line">Weiss ich, was du denkst, wenn du mit mir zusammen bist?</p>
+      <p class="q no line" data-shape="rain3" data-cue="nein">Nein.</p>
+      <p class="t line" data-wait="900" data-shape="rainStill">Das Einzige, was ich weiss: Mein Kopf hat mir schon oft Streiche gespielt. <strong>Und mir das Leben schwerer gemacht, als es ohnehin schon ist.</strong></p>
+    </div>
+  </section>
+
+  <section class="scene" data-shape="moments" data-mood="miss">
+    <div class="inner">
+      <p class="chapter line">X · Abschied</p>
+      <h2 class="line">Ich werde jede Minute mit dir <em>vermissen.</em></h2>
+      <p class="t line">Das Lachen. Das Streicheln. Das Basteln für dich, von dem ich gehofft habe, es hilft dir durch die schwere Zeit. Auch wenn es dann einfach weggesperrt wurde.</p>
+      <p class="t line" data-shape="momentsWarm" data-mood="thanks"><strong>Danke für jeden dieser Momente.</strong> Und für jeden Gedanken, den ich durch dich habe.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-shape="seedling" data-mood="me">
+    <div class="inner">
+      <p class="chapter line">X · Abschied</p>
+      <h2 class="line">Jetzt bin ich wieder <em>dran.</em></h2>
+      <p class="t line" data-shape="flower">Ich konzentriere mich wieder auf mich. Lasse meine Hobbys aufblühen. Mache unnütze Basteleien.</p>
+      <p class="t line">Und Sachen wie diese Seite hier, die du vielleicht gerade anschaust.</p>
+    </div>
+  </section>
+
+  <section class="scene end" data-shape="dandelion" data-mood="release" data-notap id="final">
+    <div class="inner" id="farewell">
+      <h2 class="line">Ich wünsche dir und Aliyah nur das <em>Beste der Welt.</em></h2>
+      <p class="t line">Auch wenn ich kein Teil davon bin.</p>
+      <p class="t line">Wir sehen uns ja auf der Arbeit.</p>
+      <p class="sig line">Alexander</p>
+    </div>
+    <div class="coda" aria-live="polite">
+      <p class="cq">
+        <span class="cl">„Manchmal wartet das Glück nicht dort, wo unser Herz es sucht.</span>
+        <span class="cl">Und auch wenn wir uns wünschen, dass es ein bestimmter Mensch ist, bedeutet das nicht, dass wir es niemals finden werden.</span>
+        <span class="cl">Vielleicht nicht mit ihm, vielleicht nicht heute –</span>
+        <span class="cl last">aber eines Tages mit jemandem, bei dem wir nicht mehr daran zweifeln müssen, ob wir gewollt sind.“</span>
+      </p>
+    </div>
+  </section>
+
+</main>
+<div class="hint" id="hint">Tippen</div>
+<noscript><p class="noscript">Diese Seite braucht JavaScript.</p></noscript>
+
+<script type="module" src="/app.js"></script>
+</body>
+</html>

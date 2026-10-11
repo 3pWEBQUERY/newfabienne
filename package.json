@@ -1,0 +1,22 @@
+{
+  "name": "fuer-fabienne-licht",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Ein Licht – eine kleine Geschichte für Fabienne",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "esbuild": "^0.25.12",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "three": "^0.186.1"
+  }
+}
