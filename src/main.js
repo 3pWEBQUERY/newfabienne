@@ -31,6 +31,7 @@ try {
   world = new Proxy({}, { get: (_, k) => (k === 'labels' ? () => null : k === 'shape' ? null : noop) });
 }
 const sound = createSound();
+if (/[?&]test/.test(location.search)) window.__sound = sound;
 
 /* ---------- Text vorbereiten: Überschriften Wort für Wort ---------- */
 for (const h of document.querySelectorAll('h1.line, h2.line')) {
@@ -195,6 +196,7 @@ const stage = document.getElementById('stage');
 let down = null, moved = false;
 stage.addEventListener('pointerdown', (e) => {
   down = { x: e.clientX, y: e.clientY, t: performance.now() }; moved = false;
+  sound.wake();
   world.pointerDown(e.clientX, e.clientY);
   if (active === finalScene && finale.ready) blow(true);
 });
